@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -65,7 +64,7 @@ const LandingPage = () => {
             <Card className="border-blue-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <CardHeader className="text-center">
                 <div className="bg-gradient-to-br from-blue-100 to-blue-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Shield className="h-8 w-8 text-blue-700" />
+                  Shield className="h-8 w-8 text-blue-700" />
                 </div>
                 <CardTitle className="text-blue-900">USP 795/797 Compliant</CardTitle>
                 <CardDescription>
@@ -109,27 +108,23 @@ const LandingPage = () => {
               Our Specialized Services
             </h2>
             <p className="text-gray-600 text-lg">
-              Comprehensive compounding solutions for diverse medical needs
+              Expert dermatological compounding solutions for your patients
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { title: "Hormone Replacement", icon: Users, color: "blue" },
-              { title: "Pediatric Compounds", icon: HeartHandshake, color: "green" },
-              { title: "Pain Management", icon: Shield, color: "purple" },
-              { title: "Veterinary Medicine", icon: Award, color: "orange" }
-            ].map((service, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="pt-6">
-                  <div className={`bg-gradient-to-br from-${service.color}-100 to-${service.color}-200 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4`}>
-                    <service.icon className={`h-6 w-6 text-${service.color}-700`} />
-                  </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">{service.title}</h3>
-                  <p className="text-sm text-gray-600">Professional-grade compounds tailored to specific requirements</p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="flex justify-center">
+            <Card className="text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 max-w-sm">
+              <CardContent className="pt-6">
+                <div className="bg-gradient-to-br from-blue-100 to-blue-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Beaker className="h-8 w-8 text-blue-700" />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2 text-lg">Dermatological Compounding</h3>
+                <p className="text-gray-600">
+                  Custom dermatological formulations tailored to specific skin conditions and patient needs, 
+                  including topical treatments, creams, ointments, and specialized delivery systems.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
