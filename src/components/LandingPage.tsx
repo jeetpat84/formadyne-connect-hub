@@ -164,7 +164,7 @@ const LandingPage = () => {
                 <div className="flex mb-4">
                   {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />)}
                 </div>
-                <p className="text-gray-600 mb-4">"Formials formulations work quicker and more effectively than traditional formulations. Patient compliance and outcomes have improved"</p>
+                <p className="text-gray-600 mb-4">"Formadyne pharmacy's formulations work quicker and more effectively than traditional formulations. Patient compliance and outcomes have improved"</p>
                 <div className="font-semibold text-blue-900">Dr. Neha Fogla, MD Derm</div>
                 <div className="text-sm text-gray-500">Mumbai</div>
               </CardContent>
