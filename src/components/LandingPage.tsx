@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -51,7 +50,7 @@ const LandingPage = () => {
                 <div className="bg-gradient-to-br from-blue-100 to-blue-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Shield className="h-8 w-8 text-blue-700" />
                 </div>
-                <CardTitle className="text-blue-900">USP 795/797 Compliant</CardTitle>
+                <CardTitle className="text-blue-900">USP 795 Compliant</CardTitle>
                 <CardDescription>
                   Fully compliant with all FDA and USP standards for sterile and non-sterile compounding
                 </CardDescription>
