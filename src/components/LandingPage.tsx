@@ -36,9 +36,7 @@ const LandingPage = () => {
       <section className="py-16 px-4 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose Formadyne Therapeutics?
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose Formadyne Therapeutics Pharmacy?</h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               We provide comprehensive compounding services with the highest standards of quality and safety
             </p>
@@ -231,7 +229,7 @@ const LandingPage = () => {
             <div className="bg-blue-700 p-2 rounded-lg">
               <Microscope className="h-6 w-6" />
             </div>
-            <span className="text-xl font-bold">Formadyne Therapeutics</span>
+            <span className="text-xl font-bold">Formadyne Therapeutics Private Limited</span>
           </div>
           <p className="text-blue-200 mb-4">
             Your trusted partner in precision compounding pharmacy
