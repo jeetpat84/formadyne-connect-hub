@@ -1,25 +1,9 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { 
-  Microscope, 
-  Shield, 
-  Clock, 
-  Users, 
-  Award, 
-  CheckCircle, 
-  Phone, 
-  Mail, 
-  MapPin,
-  ArrowRight,
-  Beaker,
-  HeartHandshake,
-  Star
-} from 'lucide-react';
-
+import { Microscope, Shield, Clock, Users, Award, CheckCircle, Phone, Mail, MapPin, ArrowRight, Beaker, HeartHandshake, Star } from 'lucide-react';
 const LandingPage = () => {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
+  return <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-4">
         <div className="container mx-auto text-center">
@@ -134,11 +118,11 @@ const LandingPage = () => {
         <div className="container mx-auto">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold mb-2">15,000+</div>
+              <div className="text-4xl font-bold mb-2">5000+</div>
               <div className="text-blue-200">Prescriptions Filled</div>
             </div>
             <div>
-              <div className="text-4xl font-bold mb-2">500+</div>
+              <div className="text-4xl font-bold mb-2">10+</div>
               <div className="text-blue-200">Partner Physicians</div>
             </div>
             <div>
@@ -146,7 +130,7 @@ const LandingPage = () => {
               <div className="text-blue-200">Quality Rating</div>
             </div>
             <div>
-              <div className="text-4xl font-bold mb-2">13+</div>
+              <div className="text-4xl font-bold mb-2">3+</div>
               <div className="text-blue-200">Years of Excellence</div>
             </div>
           </div>
@@ -157,24 +141,20 @@ const LandingPage = () => {
       <section className="py-16 px-4 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Trusted by Healthcare Professionals
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Trusted by Indian Healthcare Professionals</h2>
           </div>
           
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Card className="border-blue-100">
               <CardContent className="pt-6">
                 <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                  ))}
+                  {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />)}
                 </div>
                 <p className="text-gray-600 mb-4">
                   "Formadyne has been instrumental in providing customized solutions for my patients. 
                   Their quality and turnaround time are exceptional."
                 </p>
-                <div className="font-semibold text-blue-900">Dr. Sarah Mitchell, MD</div>
+                <div className="font-semibold text-blue-900">Dr. Tanumay Ray Chaudhury, MD Derm</div>
                 <div className="text-sm text-gray-500">Internal Medicine</div>
               </CardContent>
             </Card>
@@ -182,15 +162,10 @@ const LandingPage = () => {
             <Card className="border-blue-100">
               <CardContent className="pt-6">
                 <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                  ))}
+                  {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />)}
                 </div>
-                <p className="text-gray-600 mb-4">
-                  "The pediatric formulations from Formadyne have made treating my young patients 
-                  much more effective. Highly recommended."
-                </p>
-                <div className="font-semibold text-blue-900">Dr. James Chen, MD</div>
+                <p className="text-gray-600 mb-4">"Formials formulations work quicker and more effectively than traditional formulations. Patient compliance and outcomes have improved"</p>
+                <div className="font-semibold text-blue-900">Dr. Neha Fogla, MD Derm</div>
                 <div className="text-sm text-gray-500">Pediatrics</div>
               </CardContent>
             </Card>
@@ -259,8 +234,6 @@ const LandingPage = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default LandingPage;
