@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -16,7 +17,7 @@ const LandingPage = () => {
             <span className="text-4xl md:text-5xl">for Better Patient Care</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Formadyne Therapeutics delivers custom pharmaceutical solutions tailored to your patients' unique needs. 
+            Formadyne Therapeutics delivers custom pharmaceutical solutions tailored to your patients&apos; unique needs. 
             Our state-of-the-art compounding pharmacy combines cutting-edge technology with personalized care.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -144,7 +145,7 @@ const LandingPage = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Trusted by Indian Healthcare Professionals</h2>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <Card className="border-blue-100">
               <CardContent className="pt-6">
                 <div className="flex mb-4">
@@ -167,6 +168,19 @@ const LandingPage = () => {
                 <p className="text-gray-600 mb-4">"Formials formulations work quicker and more effectively than traditional formulations. Patient compliance and outcomes have improved"</p>
                 <div className="font-semibold text-blue-900">Dr. Neha Fogla, MD Derm</div>
                 <div className="text-sm text-gray-500">Pediatrics</div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-blue-100">
+              <CardContent className="pt-6">
+                <div className="flex mb-4">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />)}
+                </div>
+                <p className="text-gray-600 mb-4">
+                  "The personalized dermatological compounds from Formadyne have significantly improved treatment outcomes for my patients with complex skin conditions."
+                </p>
+                <div className="font-semibold text-blue-900">Dr. Rajesh Kumar, MD</div>
+                <div className="text-sm text-gray-500">Dermatology</div>
               </CardContent>
             </Card>
           </div>
