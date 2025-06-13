@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -156,7 +155,7 @@ const LandingPage = () => {
                   Their quality and turnaround time are exceptional."
                 </p>
                 <div className="font-semibold text-blue-900">Dr. Tanumay Ray Chaudhury, MD Derm</div>
-                <div className="text-sm text-gray-500">Internal Medicine</div>
+                <div className="text-sm text-gray-500">Durgapur / Sydney</div>
               </CardContent>
             </Card>
             
@@ -167,7 +166,7 @@ const LandingPage = () => {
                 </div>
                 <p className="text-gray-600 mb-4">"Formials formulations work quicker and more effectively than traditional formulations. Patient compliance and outcomes have improved"</p>
                 <div className="font-semibold text-blue-900">Dr. Neha Fogla, MD Derm</div>
-                <div className="text-sm text-gray-500">Pediatrics</div>
+                <div className="text-sm text-gray-500">Mumbai</div>
               </CardContent>
             </Card>
 
@@ -176,11 +175,9 @@ const LandingPage = () => {
                 <div className="flex mb-4">
                   {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />)}
                 </div>
-                <p className="text-gray-600 mb-4">
-                  "The personalized dermatological compounds from Formadyne have significantly improved treatment outcomes for my patients with complex skin conditions."
-                </p>
-                <div className="font-semibold text-blue-900">Dr. Rajesh Kumar, MD</div>
-                <div className="text-sm text-gray-500">Dermatology</div>
+                <p className="text-gray-600 mb-4">"The personalized dermatological compounds from Formadyne have significantly improved treatment outcomes for patients with complex skin conditions."</p>
+                <div className="font-semibold text-blue-900">Dr. Shekhar Neema, MD Derm</div>
+                <div className="text-sm text-gray-500">Lucknow</div>
               </CardContent>
             </Card>
           </div>
@@ -204,7 +201,7 @@ const LandingPage = () => {
               <CardContent className="pt-6">
                 <Phone className="h-8 w-8 text-blue-600 mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">Phone</h3>
-                <p className="text-gray-600">(555) 123-COMP</p>
+                <p className="text-gray-600">+916363991580</p>
               </CardContent>
             </Card>
             
@@ -212,7 +209,7 @@ const LandingPage = () => {
               <CardContent className="pt-6">
                 <Mail className="h-8 w-8 text-blue-600 mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">Email</h3>
-                <p className="text-gray-600">info@formadyne.com</p>
+                <p className="text-gray-600">admin@formial.in</p>
               </CardContent>
             </Card>
             
@@ -220,7 +217,7 @@ const LandingPage = () => {
               <CardContent className="pt-6">
                 <MapPin className="h-8 w-8 text-blue-600 mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">Location</h3>
-                <p className="text-gray-600">123 Medical Center Dr.</p>
+                <p className="text-gray-600">Austin Town, Bengaluru</p>
               </CardContent>
             </Card>
           </div>
