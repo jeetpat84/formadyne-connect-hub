@@ -9,6 +9,54 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      doctor_profiles: {
+        Row: {
+          clinic_address: string | null
+          clinic_name: string | null
+          created_at: string
+          email: string | null
+          full_name: string | null
+          id: string
+          medical_degree: string | null
+          phone_number: string | null
+          registration_number: string | null
+          specialization: string | null
+          updated_at: string
+          user_id: string
+          years_of_experience: number | null
+        }
+        Insert: {
+          clinic_address?: string | null
+          clinic_name?: string | null
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          medical_degree?: string | null
+          phone_number?: string | null
+          registration_number?: string | null
+          specialization?: string | null
+          updated_at?: string
+          user_id: string
+          years_of_experience?: number | null
+        }
+        Update: {
+          clinic_address?: string | null
+          clinic_name?: string | null
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          medical_degree?: string | null
+          phone_number?: string | null
+          registration_number?: string | null
+          specialization?: string | null
+          updated_at?: string
+          user_id?: string
+          years_of_experience?: number | null
+        }
+        Relationships: []
+      }
       "Doctor-prescription orders": {
         Row: {
           created_at: string

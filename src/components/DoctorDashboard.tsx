@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -21,9 +20,12 @@ import {
   Activity,
   TrendingUp,
   AlertCircle,
-  Pill
+  Pill,
+  Settings
 } from 'lucide-react';
 import { toast } from 'sonner';
+import DoctorProfile from './DoctorProfile';
+import PrescriptionRequest from './PrescriptionRequest';
 
 interface DoctorDashboardProps {
   doctorName: string;
@@ -143,18 +145,26 @@ const DoctorDashboard = ({ doctorName }: DoctorDashboardProps) => {
 
         {/* Main Dashboard Tabs */}
         <Tabs defaultValue="orders" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:grid-cols-3">
+          <TabsList className="grid w-full grid-cols-5 lg:w-auto lg:grid-cols-5">
             <TabsTrigger value="orders" className="flex items-center gap-2">
               <FileText className="h-4 w-4" />
               Orders
             </TabsTrigger>
             <TabsTrigger value="new-order" className="flex items-center gap-2">
               <PlusCircle className="h-4 w-4" />
-              New Order
+              Quick Order
+            </TabsTrigger>
+            <TabsTrigger value="prescription-request" className="flex items-center gap-2">
+              <Pill className="h-4 w-4" />
+              Prescription
             </TabsTrigger>
             <TabsTrigger value="payments" className="flex items-center gap-2">
               <CreditCard className="h-4 w-4" />
               Payments
+            </TabsTrigger>
+            <TabsTrigger value="profile" className="flex items-center gap-2">
+              <Settings className="h-4 w-4" />
+              Profile
             </TabsTrigger>
           </TabsList>
 
@@ -286,6 +296,10 @@ const DoctorDashboard = ({ doctorName }: DoctorDashboardProps) => {
             </Card>
           </TabsContent>
 
+          <TabsContent value="prescription-request">
+            <PrescriptionRequest />
+          </TabsContent>
+
           <TabsContent value="payments">
             <Card>
               <CardHeader>
@@ -341,6 +355,10 @@ const DoctorDashboard = ({ doctorName }: DoctorDashboardProps) => {
                 </div>
               </CardContent>
             </Card>
+          </TabsContent>
+
+          <TabsContent value="profile">
+            <DoctorProfile />
           </TabsContent>
         </Tabs>
       </div>
