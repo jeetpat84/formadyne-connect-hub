@@ -1,44 +1,113 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import LandingPage from '@/components/LandingPage';
 import DoctorDashboard from '@/components/DoctorDashboard';
+import { supabase } from '@/integrations/supabase/client';
+import { User, Session } from '@supabase/supabase-js';
 import { toast } from 'sonner';
 
 const Index = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [doctorName, setDoctorName] = useState('');
+  const [user, setUser] = useState<User | null>(null);
+  const [session, setSession] = useState<Session | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  const handleLogin = (email: string, password: string) => {
-    // Simple mock authentication - in real app, this would connect to a backend
-    if (email && password) {
-      setIsLoggedIn(true);
-      // Extract name from email for demo purposes
-      const name = email.split('@')[0].replace(/[^a-zA-Z]/g, '');
-      setDoctorName(name.charAt(0).toUpperCase() + name.slice(1));
+  useEffect(() => {
+    // Set up auth state listener
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        setSession(session);
+        setUser(session?.user ?? null);
+        setLoading(false);
+      }
+    );
+
+    // Check for existing session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+      setUser(session?.user ?? null);
+      setLoading(false);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleLogin = async (email: string, password: string) => {
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) {
+        toast.error('Login failed: ' + error.message);
+        return;
+      }
+
       toast.success('Login successful! Welcome to your dashboard.');
-    } else {
-      toast.error('Please enter valid credentials');
+    } catch (error) {
+      toast.error('An unexpected error occurred');
     }
   };
 
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    setDoctorName('');
-    toast.success('Logged out successfully');
+  const handleSignUp = async (email: string, password: string) => {
+    try {
+      const redirectUrl = `${window.location.origin}/`;
+      
+      const { error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          emailRedirectTo: redirectUrl
+        }
+      });
+
+      if (error) {
+        toast.error('Sign up failed: ' + error.message);
+        return;
+      }
+
+      toast.success('Sign up successful! Please check your email to confirm your account.');
+    } catch (error) {
+      toast.error('An unexpected error occurred');
+    }
   };
+
+  const handleLogout = async () => {
+    try {
+      const { error } = await supabase.auth.signOut();
+      if (error) {
+        toast.error('Logout failed: ' + error.message);
+        return;
+      }
+      toast.success('Logged out successfully');
+    } catch (error) {
+      toast.error('An unexpected error occurred');
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Loading...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen">
       <Header 
         onLogin={handleLogin}
-        isLoggedIn={isLoggedIn}
-        doctorName={doctorName}
+        onSignUp={handleSignUp}
+        isLoggedIn={!!user}
         onLogout={handleLogout}
       />
       
-      {isLoggedIn ? (
-        <DoctorDashboard doctorName={doctorName} />
+      {user ? (
+        <DoctorDashboard />
       ) : (
         <LandingPage />
       )}

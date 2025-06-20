@@ -10,15 +10,15 @@ import { User, Lock, Stethoscope, UserPlus } from 'lucide-react';
 
 interface HeaderProps {
   onLogin: (email: string, password: string) => void;
+  onSignUp: (email: string, password: string) => void;
   isLoggedIn: boolean;
-  doctorName?: string;
   onLogout: () => void;
 }
 
 const Header = ({
   onLogin,
+  onSignUp,
   isLoggedIn,
-  doctorName,
   onLogout
 }: HeaderProps) => {
   const [isAuthOpen, setIsAuthOpen] = useState(false);
@@ -41,8 +41,7 @@ const Header = ({
       alert('Passwords do not match');
       return;
     }
-    // For now, we'll treat signup the same as login (mock authentication)
-    onLogin(email, password);
+    onSignUp(email, password);
     setIsAuthOpen(false);
     setEmail('');
     setPassword('');
@@ -66,7 +65,6 @@ const Header = ({
 
         {isLoggedIn ? (
           <div className="flex items-center space-x-4">
-            <span className="text-blue-700 font-medium">Welcome, Dr. {doctorName}</span>
             <Button onClick={onLogout} variant="outline" className="border-blue-200 text-blue-700 hover:bg-blue-50">
               Logout
             </Button>

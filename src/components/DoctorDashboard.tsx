@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -26,12 +27,10 @@ import {
 import { toast } from 'sonner';
 import DoctorProfile from './DoctorProfile';
 import PrescriptionRequest from './PrescriptionRequest';
+import { useDoctorProfile } from '@/hooks/useDoctorProfile';
 
-interface DoctorDashboardProps {
-  doctorName: string;
-}
-
-const DoctorDashboard = ({ doctorName }: DoctorDashboardProps) => {
+const DoctorDashboard = () => {
+  const { profile, loading: profileLoading } = useDoctorProfile();
   const [selectedCompoundType, setSelectedCompoundType] = useState('');
   const [patientName, setPatientName] = useState('');
   const [dosage, setDosage] = useState('');
@@ -77,13 +76,20 @@ const DoctorDashboard = ({ doctorName }: DoctorDashboardProps) => {
     }
   };
 
+  // Get the doctor's display name
+  const getDoctorDisplayName = () => {
+    if (profileLoading) return '...';
+    if (profile?.full_name) return profile.full_name;
+    return 'Doctor';
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 pt-20">
       <div className="container mx-auto px-4 py-8">
         {/* Welcome Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Welcome back, Dr. {doctorName}
+            Welcome back, Dr. {getDoctorDisplayName()}
           </h1>
           <p className="text-gray-600">Manage your compounding orders and track patient prescriptions</p>
         </div>
